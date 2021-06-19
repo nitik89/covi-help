@@ -1,9 +1,7 @@
 import React, { useEffect} from 'react'
 import Base from '../basic/Base'
 
-import {Link} from 'react-router-dom';
 
-import Footer from '../basic/Footer';
 function Home() {
 
     useEffect(()=>{
@@ -12,185 +10,289 @@ function Home() {
     return (
         <div>
          <Base>
-            <section id="hero">  
-      <video src={"/assets/img/abs.mp4"} type="video/mp4" id="video" autoPlay muted loop></video>
-    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-        
-      <h1 class="mb-4 pb-0">COMPUWAVE <br/> </h1>
-      <p class="mb-4 pb-0">From Shaheed Bhagat <span>Singh State</span> Technical University</p>
-      <a href="https://youtu.be/F-U5Hdh38_8" class="glightbox play-btn mb-4" target="_blank"  rel="noreferrer">.</a>
-      <Link to="/about-us"  class="about-btn scrollto">About Us</Link>
+       
+  
+
+
+
+
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+  
+        <div class="carousel-item active" style={{backgroundImage:'url(assets/img/virus-4937553_1920.jpg)',backgroundSize:"cover"}}>
+          <div class="container" style={{backgroundColor:""}}>
+            <h2 style={{color:"white"}}>Welcome to <span style={{color:"white"}}>Covi-Help</span></h2>
+            <p style={{color:"white",fontWeight:"700"}}>Our main motto is to help the needy during this pandemic who are suffering from the requirements of essential things</p>
+     
+          </div>
+        </div>
+
+      
+        <div class="carousel-item" style={{backgroundImage:'url(assets/img/protective-suit-5716753_1920.jpg)',backgroundSize:"cover"}}>
+          <div class="container" style={{color:"white"}}>
+            <h2>Our Doctors</h2>
+            <p style={{fontWeight:"700"}}>We must give a tribute to our doctors who have been working very hard since the lockdown has started and it has been a long time since covid 19.</p>
+           
+          </div>
+        </div>
+
+        <div class="carousel-item" style={{backgroundImage:'url(assets/img/man-6274651_1920.jpg)',backgroundSize:"cover"}}>
+          <div class="container">
+            <h2 style={{color:"white"}}>We will help you</h2>
+            <p style={{color:"white",fontWeight:"700"}}>It is our duty to help you to get the resources which you need in order to save ur well beings like oxygen,medicines etc.</p>
+           
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
     </div>
   </section>
 
   <main id="main">
 
-
-    <section id="about">
+    
+    <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-6">
-            <h2>About Us</h2>
-            <p>Compuwave society is a society of computer science department at 
-              Shaheed Bhagat Singh State Technical Campus Ferozepur,Punjab.
 
-            </p>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="fas fa-people-arrows"></i></div>
+              <h4 class="title"><a href="/">Social Distance</a></h4>
+              <p class="description">Maintain a social distance of 6 feet with other person</p>
+            </div>
           </div>
-          <div class="col-lg-6">
-            <h3>Where</h3>
-            <p>Moga Road, NH-95, Firozpur, Punjab 152001</p>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="fas fa-head-side-mask"></i></div>
+              <h4 class="title"><a href="/">Wear Mask</a></h4>
+              <p class="description">Mask is important to avoid protection against the germs.</p>
+            </div>
           </div>
-      
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="fas fa-house-user"></i></div>
+              <h4 class="title"><a href="/">Stay Home</a></h4>
+              <p class="description">Stay home until is very important to go out</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="fas fa-hands-wash"></i></div>
+              <h4 class="title"><a href="/">Wash your hands</a></h4>
+              <p class="description">Wash your hands with soap at regular intervals</p>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
-    <section id="events">
-      <div class="container p-4" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Why you should attend Compuwave?</h2>
-        
-        </div>
 
+    
+  
+
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+          <p>The Covi-Help's main motive is to help people in this pandemic times and the main motive is to get the resources on time which can be utilized on time.</p>
+        </div>
 
         <div class="row">
-          <div className="col-lg-6 col-sm-12 p-4">
-            <img src="assets/img/Frontpage.png" className="responsive" alt="Atoma" style={{height:"auto",maxWidth:"100%"}}/>
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="assets/img/covid-19-4960254_1920.png" class="img-fluid" alt=""/>
           </div>
-          <div className="col-lg-6 col-sm-12 p-4" >
-          <p style={{color:"black",fontSize:"20px"}}>There is one thing that is constant and that is change
-<br/><br/>
-
-Attending these events can ignite energy in you when you see lot of people with like mindset and energy sitting
-close to you striving to learn and be better.
-<br/><br/>
-<i class="fa fa-check" aria-hidden="true"></i> Network with Different Peers
-<br/>
-<i class="fa fa-check" aria-hidden="true"></i> Show Your Skills<br/>
-<i class="fa fa-check" aria-hidden="true"></i> You Have Got Nothing to Lose
-<br/>
-<i class="fa fa-check" aria-hidden="true"></i> You Are Investing in Yourself
-<br/>
-<i class="fa fa-check" aria-hidden="true"></i> You Become a Thought Leader
-</p>
-
-            </div>
-          <div class="col-lg-4 col-md-6 p-4">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="100">
-            <i class="fa fa-user" aria-hidden="true" style={{fontSize:"40px"}}></i>
-              <div class="details">
-                <h3>Network with Different Peers</h3>
-                <p>Connect with students across different colleges & increase your Network</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 p-4">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="200">
-            <i class="fa fa-user-friends" aria-hidden="true" style={{fontSize:"40px"}}></i>
-              <div class="details">
-                <h3>You Have Got Nothing to Lose</h3>
-                <p>No matter what stream you are, there is something I guaranty that you must pick up at these events.</p>
-              </div>
-              </div>
-            
-          </div>
-          <div class="col-lg-4 col-md-6 p-4">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
-             
-            <i class="fa fa-chart-pie" aria-hidden="true" style={{fontSize:"40px"}}></i>
-              <div class="details">
-                <h3>You Become a Thought Leader</h3>
-                <p>Learning from Speaker by listening and jotting down means you are duplicating their brain which normally is not easy to access anywhere except these kind of events</p>
-              </div>
-            </div>
-          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Our motto is to help.</h3>
+            <p class="font-italic">
+              We will provide these resources
+            </p>
+            <ul>
+              <li><i class="icofont-check-circled"></i> We will provide the oxygen.</li>
+              <li><i class="icofont-check-circled"></i>We will provide the food </li>
+              <li><i class="icofont-check-circled"></i>We will provide the medicines</li>
+            </ul>
           
-         
-        
+          </div>
         </div>
-      </div>
 
+      </div>
+    </section>
+
+    
+   
+    
+    <section id="doctors" class="doctors section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Our Frontline Workers</h2>
+          <p>Our frontline workers are working really hard to make things normal </p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="assets/img/135860-tqrytgycjj-1586955494.jpg" class="img-fluid" alt=""/>
+                
+              </div>
+              <div class="member-info">
+                <h4>Our Doctors</h4>
+                <span>They have saved lives of millions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="member-img">
+                <img src="assets/img/_112250983_217747a3-01d7-466c-8c0d-45c2f35d2195.jpg" class="img-fluid" alt=""/>
+                
+              </div>
+              <div class="member-info">
+                <h4>Our Police Force</h4>
+                <span>The police force has worked 24x7</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="member-img">
+                <img src="assets/img/2020-03-27T101400Z_211242614_RC2ASF9TIMPG_RTRMADP_3_HEALTH-CORONAVIRUS-SOUTHASIA_1585631419369_1585631421077.webp" class="img-fluid" alt=""/>
+             
+              </div>
+              <div class="member-info">
+                <h4>The NGO's</h4>
+                <span>The NGO's have served food to many people</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="400">
+              <div class="member-img">
+                <img src="assets/img/659-municipal-workers-spray-disinfectants-on-people-during-the-nationwide-image-88005500_20200427_017.webp" class="img-fluid" alt=""/>
+               
+              </div>
+              <div class="member-info">
+                <h4>The Municipal Workers</h4>
+                <span>They have helped in santizing the environment</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="gallery" class="gallery">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Gallery</h2>
+          
+        </div>
+
+        <div class="owl-carousel gallery-carousel" data-aos="fade-up" data-aos-delay="100">
+          <a href="assets/img/20210509130L.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/20210509130L.jpg" alt=""/></a>
+          <a href="assets/img/covd.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/covd.jpg" alt=""/></a>
+          <a href="assets/img/1066137-covid.png" class="venobox" data-gall="gallery-carousel"><img src="assets/img/1066137-covid.png" alt=""/></a>
+          <a href="assets/img/hand_sanitizers_660_220320075839_250420024356.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/hand_sanitizers_660_220320075839_250420024356.jpg" alt=""/></a>
+          <a href="assets/img/coronavirus-vaccine.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/coronavirus-vaccine.jpg" alt=""/></a>
+          <a href="assets/img/Online-course.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/Online-course.jpg" alt=""/></a>
+          <a href="assets/img/gallery/gallery-7.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/gallery-7.jpg" alt=""/></a>
+          <a href="assets/img/gallery/gallery-8.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/gallery-8.jpg" alt=""/></a>
+        </div>
+
+      </div>
     </section>
    
-
-
-    <section id="gallery">
-
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Gallery</h2>
-          <p>Check our gallery from the recent events</p>
-        </div>
-      </div>
-
-      <div class="gallery-slider swiper-container">
-        <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide"><a href="assets/img/gallery/1.jpg" class="gallery-lightbox"><img src="assets\img\ud933845-9686-4720-9596-b9affe8a0954.jpg" class="img-fluid" alt=""/></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/2.jpg" class="gallery-lightbox"><img src="assets\img\u8a0f71b-1bef-48c4-9c79-ad85b5479c6e.jpg" class="img-fluid" alt=""/></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/3.jpg" class="gallery-lightbox"><img src="assets\img\u9f9aa9f-279f-427b-835f-9079029737b9.jpg" class="img-fluid" alt=""/></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/4.jpg" class="gallery-lightbox"><img src="assets\img\ab68fb39-f644-4e15-9fba-f345b3f663db.jpg" class="img-fluid" alt=""/></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/5.jpg" class="gallery-lightbox"><img src="assets\img\aa42dc72-711d-45de-b07f-369fb507b9cb.jpg" class="img-fluid" alt=""/></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/6.jpg" class="gallery-lightbox"><img src="assets\img\ab68fb39-f644-4e15-9fba-f345b3f663db.jpg" class="img-fluid" alt=""/></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/7.jpg" class="gallery-lightbox"><img src="assets\img\b6d5855f-9f38-4c0c-ad68-f302b6249daf.jpg" class="img-fluid" alt=""/></a></div>
-          <div class="swiper-slide"><a href="assets/img/gallery/8.jpg" class="gallery-lightbox"><img src="assets\img\d1438461-34fb-45c3-974e-d0129dbc126e.jpg" class="img-fluid" alt=""/></a></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-    </section>
-    <section id="supporters" class="section-with-bg">
-
-      <div class="container" data-aos="fade-up" >
-        <div class="section-header">
-          <h2>Our Investors & Collaborators</h2>
-        </div>
-
-        <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets\img\WhatsApp-Image-2021-04-07-at-10.42.14-PM.jpeg" class="img-fluid" alt=""/>
-            
-            </div>
-            <h1 className="text-center mt-2">Kaizen</h1>
-            <p className="text-dark text-justify">Kaizen Home Solution is one stop solution company for Modular furniture and interior works like Kitchen, Wardrobe, T.V unit, wallpaper, Madhubani Wall Art, 2D & 3D designs etc in India.</p>
-           
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets\img\Copy-of-Blue-and-Green-Construction-Logo.png" class="img-fluid" alt=""/>
-            </div>
-            <h1 className="text-center mt-2">Kaizen</h1>
-            <p className="text-dark text-justify">Kaizen Home Solution is one stop solution company for Modular furniture and interior works like Kitchen, Wardrobe, T.V unit, wallpaper, Madhubani Wall Art, 2D & 3D designs etc in India.</p>
-           
-          </div>
-
-        
-
-          <div class="col-lg-4 col-md-4 col-xs-6">
-            <div class="supporter-logo">
-              <img src="assets\img\Copy-of-Blue-and-Green-Construction-Logo-1.png" class="img-fluid" alt=""/>
-            </div>
-            <h1 className="text-center mt-2">Pagistnation</h1>
-            <p className="text-dark text-justify">A one-stop platform with Tech-first approach to all written study material management and Solution-first approach to curbing latent illiteracy amongst students. Providing all the Textual Study Material to everyone in one go.</p>
-           
-          </div>
-
-      
-
-         
-
-        </div>
-
-      </div>
-
-    </section>
-  
+    
   </main>
 
 
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6">
+            <div class="footer-info">
+              <h3>Covi-Help</h3>
+              <p>
+                Ferozepur,Cantt<br/>
+               
+                <strong>Phone:</strong> 8727888573<br/>
+                <strong>Email:</strong> covihelp@gmail.com<br/>
+              </p>
+              <div class="social-links mt-3">
+                <a href="/" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="/" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          
+
+         
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Covi-Help</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+      
+        Designed by <a href="https://bootstrapmade.com/">Karanveer,Nitik and Parul</a>
+      </div>
+    </div>
+  </footer>
+
+
+
        </Base>
-       <Footer/>    
+    
 </div>
     
     )

@@ -1,11 +1,10 @@
 nav ul li {
     font-weight: 700;
-    font-family: "Raleway";
+    font-family: 'Poppins', sans-serif;
 }
 
 .getHeight {
     min-height: 60vh;
-    color: blue;
 }
 
 .logo {

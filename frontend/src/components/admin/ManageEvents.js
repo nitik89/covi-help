@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-import { deleteEvents, getAllEvents,changeStats } from '../apicalls/auth/eventcalls';
+import { deleteEvents, getAllEvents, changeOxygen } from '../apicalls/auth/eventcalls';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Base from '../basic/Base'
@@ -26,7 +26,7 @@ function ManageEvents() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const changeStatus=(Eventid)=>{
-        changeStats(Eventid,user._id,token).then(data=>{
+        changeOxygen(Eventid,user._id,token).then(data=>{
 if(data){
     if(data.message){
         const idx=managers.findIndex(evnts=>evnts._id===Eventid);

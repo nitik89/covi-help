@@ -1,32 +1,31 @@
-import React, { useEffect, useState,useContext } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import { getEventById } from '../apicalls/auth/eventcalls';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import {  getOxygenById } from '../apicalls/auth/eventcalls';
 import Base from '../basic/Base';
 import './Events.css';
-import { UserContext } from '../../App';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../basic/button.css';
-import { orderMyEvents } from '../../helper/carthellper';
-import Footer from '../basic/Footer';
+
+
 
 function EventsDetail() {                                             
-   const {eventid} =useParams();
+   const {oxygenid} =useParams();
+  
    const [details,setDeatils]=useState({})
-   const {state,dispatch}=useContext(UserContext);
+   
    const user=JSON.parse(localStorage.getItem("user"));
    const token=localStorage.getItem("jwt");
    const [loading,setLoading]=useState(false);
-   const history=useHistory();
-
-   let error=0;
-   let cart=state?.cart?state.cart:[];
+  
  
     useEffect(()=>{
        setLoading(true);
-        getEventById(eventid,user._id,token).then(data=>{
+        getOxygenById(oxygenid,user._id,token).then(data=>{
           
             setDeatils(data);
+            console.log(details);
             if(details){
 
             setLoading(false);
@@ -39,55 +38,11 @@ function EventsDetail() {
           toast.error("Couldn't fetch try a refersh");
           
         })
+        // eslint-disable-next-line
     },[])
 
-    const registerMe=(eventId)=>{
-  const data=[];
-  data.push(details);
-          orderMyEvents({products:data},user._id,token).then(res=>{
-              if(res.status==="Recieved"){
-                  toast("Registered Successfully");
-                  setTimeout(()=>{
-                           
-                      history.push('/');
-                    },3000);
-      
-              }
-              else{
-                  toast.error("Could not register");
-              }
-              
-          })
-      }
 
-    const addToCart = (id)=>{
-    
-     
-          
-              cart.map(evnts=>{
-                
-                  if(evnts._id===id){
-                      toast.error("Item is already in the cart");
-                      error=1
-                 
-                  }
-                  return 1;
-              })
-              
-              if(error===0){
-                  toast.success("Item added successfully to cart");
-              cart.push(details);
-              localStorage.setItem("cart",JSON.stringify(cart));
-        
-              dispatch({type:"ADDTOCART",payload:cart})
-              
-             
-              
-              }
-              
-          }
-      
-     
+
           
       
       
@@ -95,7 +50,7 @@ function EventsDetail() {
       <div>
        <Base>
        <ToastContainer/>
-       <h1 className="heading text-center"><span className="spanner ">The</span> Details of the <span className="spanner">Event</span></h1>
+       <h1 className="heading text-center"><span className="spanner ">The</span> Details <span className="spanner"></span></h1>
 
 {loading?(
 
@@ -106,52 +61,49 @@ function EventsDetail() {
    
     
   
-<img src={`/${details?.photo}`} class="img-fluid p-4 rounded " alt={details.name}/>
-      <h1 className="text-white heading mt-2">{details?.name}</h1>
-    
+<img src={`/${details?.photo}`} class="img-fluid p-4 rounded " alt={details?.ngoname}/>
+     
       
       
       <div class="table-responsive bg-white  mb-3 p-3 ">
         <table class="table table-sm  ">
           <tbody>
-            <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Event Manager</strong></th>
+          <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Name</strong></th>
             
-              <td>{details?.event_manager?.firstname} {details?.event_manager?.lastname}</td>
+              <td>{details?.ngoname}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Location</strong></th>
+            
+              <td>{details?.location}</td>
             </tr>
           
             <tr>
               <th class="pl-0 w-25" scope="row"><strong>Contact_no</strong></th>
-              <td>{details?.event_manager?.contact_no} </td>
+              <td>{details?.contact_no} </td>
             </tr>
             
             <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Duration of Event</strong></th>
-              <td>{details?.duration} hrs</td>
+              <th class="pl-0 w-25" scope="row"><strong>Location</strong></th>
+              <td>{details?.location}</td>
             </tr>
            
             <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Date and Time</strong></th>
-              <td>{details?.fulldate}</td>
+              <th class="pl-0 w-25" scope="row"><strong>Quantity</strong></th>
+              <td>{details?.quantityofCyclinder}</td>
             </tr>
             
             <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Price</strong></th>
-              <td>Rs: {details?.price}</td>
+              <th class="pl-0 w-25" scope="row"><strong>Pincode</strong></th>
+              <td>{details?.pincode}</td>
             </tr>
-            <tr>
-              <th class="pl-0 w-25" scope="row"><strong>More Details</strong></th>
-              <td><a href={details?.url} target="_blank" style={{color:"blue"}} rel="noreferrer"> Details</a></td>
-            </tr>
+            
             
            
           </tbody>
         </table>
-        {details?.price>0?(
-          <button type="button" class="btn btn-light btn-lg btn-block firstbutton m-3" onClick={()=>{addToCart(details?._id)}}><i
-          class="fas fa-shopping-cart "></i>Add to cart</button>
-        ): <button type="button" class="btn btn-light btn-lg btn-block firstbutton m-3" onClick={()=>{registerMe(details?._id)}}><i
-        class="fas fa-shopping-cart "></i>Register Now</button>}
+        
         
       </div>
     
@@ -162,7 +114,7 @@ function EventsDetail() {
   </div>
 }
    </Base>  
-<Footer/>
+
 
 </div>
 

@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 
-import { UserContext } from '../../App'
-import { getMe, getMyOrders } from '../apicalls/auth/eventcalls';
+import { getMe } from '../apicalls/auth/eventcalls';
 import Base from '../basic/Base'
 import './Events.css';
 import './Profile.css';
 import '../basic/Loading.css';
-import Footer from '../basic/Footer';
+
 function Profile() {
-    const {state}=useContext(UserContext);
-    const [data,setData]=useState([]);
+   // eslint-disable-next-line
     const [loading,setLoading]=useState(true);
+    // eslint-disable-next-line
 const [userdata,setUserdata]=useState({});
+
     const token=localStorage.getItem("jwt");
     const user=JSON.parse(localStorage.getItem("user"));
     
@@ -35,33 +35,19 @@ const [userdata,setUserdata]=useState({});
             })
             setLoading(true);
 
-            getMyOrders(user._id,token).then(res=>{
-                if(res){
-                if(res.error){
-                    
-                    setLoading(false);
-                }
-                else{
-                    setData(res);
-                    setLoading(false);
-                }
-            }
-            })
-            .catch(err=>{
-                setLoading(false);
-            })
+            
             
         }
     }
-   // react-hooks/exhaustive-deps
 
-       
-    },[state])
+  // eslint-disable-next-line
+},[])
     return (
         <>
      
             <Base>
             <h1 className="spanner text-center">PROFILE PAGE</h1>
+            
             <div className="container">
             <div class="page-content page-container" id="page-content">
     <div class="padding">
@@ -90,62 +76,22 @@ const [userdata,setUserdata]=useState({});
                                         <p class="m-b-10 f-w-600">Phone</p>
                                         <h6 class="text-muted f-w-400 spanner">{user?.contact_no}</h6>
                                     </div>
+                                    
 
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Events Registered</p>
-                                       {userdata?.events?.map(evnts=>{
-                                           return  <h6 class="text-muted f-w-400 spanner">{evnts.name}</h6>
-                                       })}
-                                       
-                                    </div>
+                                    
                                 </div>
-                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Payment Status</h6>
-                                <div class="row">
-                                <div class="col-sm-12">
-                                {loading? <div className="loader">Loading...</div>:(
-                                    <div class="table-responsive">
-                                    <table class="table ">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col spanner">#</th>
-                                        <th scope="col heading">Status</th>
-                                        <th scope="col heading">Payment_id</th>
-                                        <th scope="col heading">Amount</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      
-                                      {data?.map((evnts,idx)=>{
-                                         return (
-                                             <>
-                                             {evnts.amount>0?(
-                                                 <tr>
-                                                 <th scope="row">*</th>
-                                                 <td>{evnts.status}</td> 
-                                                    <td>{evnts.payment_id}</td> 
-                                                    <td>Rs {evnts.amount}</td>
-                                                    </tr>
-                                             ):<></>}
-                                             
-                                             </>
-                                         )
-                                      })}
-                                      
-                                      
-                                      </tbody>
-                                    </table>
-                                  </div>
-
-                                )
-                                }
-                                
-                                
-                                    </div>
-                                    </div>
+                        
+                              
                             </div>
+                            
                         </div>
+
+                    
+                        
                     </div>
+                    
                 </div>
+      
             </div>
         </div>
     </div>
@@ -155,7 +101,7 @@ const [userdata,setUserdata]=useState({});
          
           
       </Base>
-        <Footer/>
+        
         </>
     )
 }

@@ -15,12 +15,10 @@ function AdminDashboard() {
   <div class="card-header bg-success">Choose Any Option</div>
   <div class="card-body">
   <ul class="list-group">
-  <li class="list-group-item list-group-item-light"><Link to="/admin/eventManage/create" className="nav-link text-success"> Create Event Manager</Link></li>
-  <li class="list-group-item list-group-item-light"><Link to="/admin/eventManage/manage" className="nav-link text-success"> Manage Event Manager</Link></li>
-  <li class="list-group-item list-group-item-light"><Link to="/admin/events/create" className="nav-link text-success"> Create Events</Link></li>
-  <li class="list-group-item list-group-item-light"><Link to="/admin/events/manage" className="nav-link text-success">Manage Events</Link></li>
-  <li class="list-group-item list-group-item-light"><Link to="/admin/students/event" className="nav-link text-success"> Manage Students</Link></li>
-
+  <li class="list-group-item list-group-item-light"><Link to="/admin/checkOxygen" className="nav-link text-success"> Check Oxygen</Link></li>
+  <li class="list-group-item list-group-item-light"><Link to="/admin/checkFood" className="nav-link text-success"> Check Food</Link></li>
+  <li class="list-group-item list-group-item-light"><Link to="/admin/checkMedicines" className="nav-link text-success"> Check Medicines</Link></li>
+  
   </ul>
    
   

@@ -7,9 +7,10 @@
 }
 
 .spanner {
-    background: linear-gradient(145deg, #673AB7, #9c27B0);
+    background: linear-gradient(145deg, #08859b, #50a9ac);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: 'Poppins', sans-serif;
 }
 
 .check {
@@ -17,7 +18,7 @@
 }
 
 .background {
-    background: linear-gradient(145deg, #673AB7, #9c27B0);
+    background: linear-gradient(145deg, #08859b, #50a9ac);
 }
 
 .ans {

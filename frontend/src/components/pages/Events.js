@@ -1,132 +1,70 @@
 import React, { useEffect, useState,useContext } from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
-import { getAllEvents } from '../apicalls/auth/eventcalls';
-import Base from '../basic/Base'
+
 import '../basic/Loading.css';
+
 
 import '../basic/Cards.css';
 import './Events.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../basic/button.css';
-import { orderMyEvents } from '../../helper/carthellper';
-import Footer from '../basic/Footer';
+
+
+import Res from '../basic/Res';
+import { bookOxygen, getAllOxygen } from '../apicalls/auth/eventcalls';
+import Base from '../basic/Base';
 function Events() {
 const [events,setEvents]=useState([]);
 const {state,dispatch}=useContext(UserContext);
-
+console.log(state);
 const user=JSON.parse(localStorage.getItem("user"));
 const token=localStorage.getItem("jwt");
 const [loading,setLoading]=useState(true);
+
 let error=0;
-const history=useHistory();
-let cart=state?.cart?state.cart:[];
-let registered=state?.events;
-
-let check=0;
-
-const registerMe=(eventId)=>{
-
-const idx=registered.findIndex(evnts=>evnts===eventId)
-if(idx!==-1){
-    check=1;
-    toast.error("You are already registered");
-}
-if(check===0){
-const data=[];
-    events.map(evnts=>{
-        if(evnts._id===eventId){
-            data.push(evnts);
-        }
-        return 1;
+const bookNow=(oxygenId)=>{
+    
+    if(state?.oxygen){
+        error=1;
+        toast.error("Only one booking allowed")
+    }
+    if(error===0){
+    bookOxygen(oxygenId,user._id,token).then(res=>{
+       if(res){
+           if(res.message){
+               toast(res.message)
+               localStorage.setItem("user",JSON.stringify(res.user));
+      
+               dispatch({type:'USER',payload:res.user});
+               error=1;
+           }
+           if(res.error){
+               toast.error(res.error)
+           }
+       
+       }
+    }).catch(err=>{
+        console.log(err);
     })
-    orderMyEvents({products:data},user._id,token).then(res=>{
-        if(res.status==="Recieved"){
-            
-            const evnts=user.events;
-            
-            res.products.map(ev=>{
-              evnts.push(ev._id);
-              return 1;
-            })
-            
-            const newuser={...user,events:evnts};
-            localStorage.setItem("user",JSON.stringify(newuser));
-            dispatch({type:"UPDATETHEEVENTS",payload:evnts});
-           
-            toast("Registered Successfully");
-            setTimeout(()=>{
-                     
-                history.push('/');
-              },3000);
+}
+}
 
-        }
-        else{
-            toast.error("Could not register");
-        }
-        return 1;
-    });
-    check=0;
-}}
 const getEvents=()=>{
-    getAllEvents(user._id,token).then(res=>{
+    getAllOxygen(user._id,token).then(res=>{
         setLoading(false);
+     
         toast("Fetched Successfully");
         setEvents(res);
+        console.log(events);
     }).catch(err=>{
 
         setLoading(false);
         toast.error("Couldn't load")
     })
 }
-const addToCart = (id)=>{
-   
-    registered.map(evnts=>{
-        
-        if(evnts===id){
-            check=1;
-          
-            toast.error("You are already registered");
-           
-        }
-        return 1;
-    });
-    if(check===0){
-events.map(data=>{
-    if(data._id===id){
-        cart.map(evnts=>{
-            if(evnts._id===id){
-                toast.error("Item is already in the cart");
-                error=1
-           
-            }
-            return 1;
-        })
-        
-        if(error===0){
-            toast.success("Item added successfully to cart");
-        cart.push(data);
-        
-        }
-        
-    }
-     
-       
-    
-    
-    return 1;
 
-})}
-
-localStorage.setItem("cart",JSON.stringify(cart));
-  
-dispatch({type:"ADDTOCART",payload:cart})
-
-error=0;
-    
-
-}
 useEffect(()=>{
    
     getEvents();
@@ -137,9 +75,10 @@ useEffect(()=>{
     return (
         <>
         <Base>
+        <Res/>
         <ToastContainer/>
-        <div >
- <h1 className="font-weight-bold heading text-center"><span className="spanner">ALL</span> THE <span className="spanner">EVENTS</span></h1>
+        <div>
+ <h1 className="font-weight-bold heading text-center"><span className="spanner">OXYGEN DATA</span></h1>
 {loading? <div className="loader">Loading...</div>:(
     
     <div className="container">
@@ -153,27 +92,28 @@ useEffect(()=>{
 <img src={`/${evnts?.photo}`} class="card-img-top" height="200rem" width="auto" alt={evnts.name}/>
 <h6 className=" font-weight-bold mt-4">
 
-    <span clasName="subheading mr-2"style={{fontSize:"20px",color:"white"}}> Event's Name: </span>
-     <span className="text-warning "> {evnts.name} </span></h6>
+    <span clasName="subheading mr-2"style={{fontSize:"20px",color:"white"}}> NGO's Name: </span>
+     <span className="text-warning "> {evnts.ngoname} </span></h6>
 </div>
 
-<ul class="list-group shadow-lg">
+<ul class="list-group shadow-lg ">
 
   
-  {evnts?.price>0?(<li class="list-group-item list-group-item-" style={{fontSize:"20px" }}>Price:Rs {evnts.price}</li>):<li class="list-group-item list-group-item-" style={{fontSize:"20px" }}>Register for free</li>}
+
   
 
-  <li class="list-group-item list-group-item-warning">
-      <Link to={`events/${evnts._id}`} className="text-white">
-           <btn className="btn btn-info firstbutton p-2">Details</btn> </Link> 
+  <li class="list-group-item list-group-item-warning grp" style={{backgroundImage:"linear-gradient(#16222A,#3A6073)",color:"white"}}>
+
            <>   
            {evnts?.active?(
                <>
-                 {evnts?.price>0?(
-                    <btn className="btn btn-outline-success secondbutton p-2" onClick={()=>addToCart(evnts._id)}>Add To Cart</btn> 
-                   ):(<btn className="btn btn-outline-success secondbutton p-2" onClick={()=>registerMe(evnts._id)}>Register Now</btn> )}
+                     <><Link to={`oxygen/${evnts._id}`} className="text-white">
+           <btn className="btn btn-info firstbutton p-2">Details</btn> </Link>
+           <btn className="btn btn-info firstbutton p-2" onClick={()=>{bookNow(evnts._id)}} >Book Now</btn>
+           <p className="p-2" style={{fontSize:"20px"}}>Verified <i class="fas fa-check" style={{color:"green",fontSize:"30px"}}  ></i></p>
+           </> 
                    </>
-           ):(<p className="p-2">Registrations will open shortly</p>)}
+           ):(<p className="p-2" style={{fontSize:"20px"}}>Not verified  <i class="fas fa-close"  style={{color:"red",fontSize:"30px"}}></i> </p>)}
           </>
            </li>
            
@@ -191,7 +131,7 @@ useEffect(()=>{
 )}
 </div>
         </Base>
-        <Footer/>
+     
         </>
     )
 }

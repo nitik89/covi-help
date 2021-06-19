@@ -26,7 +26,7 @@ var userSchema = new mongoose.Schema({
         required: true
     },
     salt: String,
-    rollno: {
+    pincode: {
         type: Number,
         required: true
     },
@@ -35,16 +35,20 @@ var userSchema = new mongoose.Schema({
         required: true
 
     },
-    year: {
-        type: Number,
-        default: 0
-    },
+
     role: {
         type: Number,
         default: 0
     },
-    allocatedEvent:[ {type: ObjectId, ref: "Events" }],
-    events: [{ type: ObjectId, ref: "Events" }]
+    oxygen: {
+        type: ObjectId,
+        ref: "Oxygen"
+    },
+    medicine: {
+        type: ObjectId,
+        ref: "medicinesSchema"
+    }
+
 
 }, { timestamps: true })
 

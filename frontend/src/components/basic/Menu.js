@@ -6,7 +6,7 @@ import './Menu.css';
 
 const currentTab = (history, path) => {
     if (history.location.pathname === path) {
-      return { color: "#E07C24" };
+      return { color: "#fcce00" };
     } else {
       return { color: "#DAE0E2" };
     }
@@ -20,7 +20,7 @@ function Menu({history,path}) {
   const logout=()=>{
     signout().then(res=>{
       dispatch({type:'CLEAR'});
-      history.push('/studentlogin');
+      history.push('/login');
  
     })
   }
@@ -31,10 +31,10 @@ function Menu({history,path}) {
       
     <div>
 
-      <nav className="navbar navbar-expand-md navbar-dark" style={{background:" linear-gradient(to right bottom, #673AB7 ,#9c27B0)",maxWidth:"100%"}}>
+      <nav className="navbar navbar-expand-md navbar-dark" style={{background:" linear-gradient(to right bottom,#08859b ,#50a9ac)",maxWidth:"100%",padding:"10px"}}>
       <Link  to="/">
 <a class="navbar-brand" href="/">
-            <img className="logo" src="https://yt3.ggpht.com/ytc/AAUvwnj2aypY6wsl3foroDaK1dBGFk42ZhLY4GCm2tog=s900-c-k-c0x00ffffff-no-rj" alt="logo"/>
+            COVI-HELP
         </a>
        
       
@@ -52,41 +52,45 @@ function Menu({history,path}) {
       <>
       
       <li className="nav-item">
-      <Link className="nav-link"style={currentTab(history, "/events")} to="/events">Events</Link>
+      <Link className="nav-link"style={currentTab(history, "/resources")} to="/resources/oxygen">Resources</Link>
     </li>
     <li className="nav-item">
-      <Link className="nav-link"style={currentTab(history, "/cart")} to="/cart">Cart({state?.cart?state.cart.length:0})</Link>
+      <Link className="nav-link"style={currentTab(history, "/covid-cases")} to="/covid-cases">Covid Cases</Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link"style={currentTab(history, "/donation")} to="/donation">Donation</Link>
     </li>
     <li className="nav-item">
       <Link className="nav-link"style={currentTab(history, "/profile")} to="/profile">Profile</Link>
     </li>
-       
     <li className="nav-item">
-    <button type="button" class="btn btn-danger" onClick={()=>{logout()}}> Logout </button>
-    </li> 
+      <Link className="nav-link"style={currentTab(history, "/add-medicines")} to="/add-medicines">Add Resources</Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link"style={currentTab(history, "/contributions")} to="/contributions">My Contributions</Link>
+    </li>
     {state?.role===1?
     <>
     <li className="nav-item">
     <Link className="nav-link" style={currentTab(history, "/admin/dashboard")} to="/admin/dashboard" >Admin Dashboard</Link>
-  </li> 
+  </li>
+  
   </>:<></>
     }
-      {state?.role===2 || state?.role===1 ?
-    <>
     <li className="nav-item">
-    <Link className="nav-link" style={currentTab(history, "/eventManager/dashboard")} to="/eventManager/dashboard" >Event Manager Dashboard</Link>
-  </li> 
-  </>:<></>
-    }
+    <button type="button" class="btn btn-danger"  style={{backgroundImage:"linear-gradient(#16222A,#3A6073)",border:"none"}} onClick={()=>{logout()}}> Logout </button>
+    </li> 
+   
+      
     
 </>
     ):(
       <>
       <li className="nav-item">
-      <Link className="nav-link"style={currentTab(history, "/studentsignup")} to="/studentsignup"> Signup</Link>
+      <Link className="nav-link"style={currentTab(history, "/signup")} to="/signup"> Signup</Link>
     </li>
     <li className="nav-item">
-      <Link className="nav-link"style={currentTab(history, "/studentlogin")} to="/studentlogin"> Login</Link>
+      <Link className="nav-link"style={currentTab(history, "/login")} to="/login"> Login</Link>
     </li>
 </>
     )}
