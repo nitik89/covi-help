@@ -108,10 +108,10 @@ useEffect(()=>{
                      <><Link to={`medicines/${evnts._id}`} className="text-white">
            <btn className="btn btn-info firstbutton p-2">Details</btn> </Link>
            <btn className="btn btn-info firstbutton p-2" onClick={()=>{bookNow(evnts._id)}}>Book Now</btn>
-           <p className="p-2" style={{fontSize:"20px"}}>Verified <i class="fas fa-check" style={{color:"green",fontSize:"30px"}}  ></i></p>
+           <p className="p-2" style={{fontSize:"20px"}}>Verified</p>
            </> 
                    </>
-           ):(<p className="p-2" style={{fontSize:"30px"}}>Not verified <i class="fas fa-close"  style={{color:"red",fontSize:"30px"}}></i></p>)}
+           ):(<p className="p-2" style={{fontSize:"30px"}}>Not verified </p>)}
           </>
            </li>
            
