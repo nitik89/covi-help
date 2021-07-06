@@ -113,7 +113,7 @@ useEffect(()=>{
            <p className="p-2" style={{fontSize:"20px"}}>Verified </p>
            </> 
                    </>
-           ):(<p className="p-2" style={{fontSize:"20px"}}>Not verified  <i class="fas fa-close"  style={{color:"red",fontSize:"30px"}}></i> </p>)}
+           ):(<p className="p-2" style={{fontSize:"20px"}}>Not verified   </p>)}
           </>
            </li>
            
