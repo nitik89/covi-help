@@ -82,10 +82,10 @@ useEffect(()=>{
            {evnts?.active?(
                <>
                      <>
-           <p className="p-2" style={{fontSize:"20px"}}>Verified <i class="fas fa-check" style={{color:"green",fontSize:"30px"}}></i></p>
+           <p className="p-2" style={{fontSize:"20px"}}>Verified </p>
            </> 
                    </>
-           ):(<p className="p-2" style={{fontSize:"30px"}}>Not verified <i class="fas fa-close"  style={{color:"red",fontSize:"30px"}}></i></p>)}
+           ):(<p className="p-2" style={{fontSize:"30px"}}>Not verified </p>)}
           </>
         </li>
            
