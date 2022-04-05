@@ -35,11 +35,7 @@ var oxygenSchema = new mongoose.Schema({
         required: true
 
     },
-    photo: {
-        type: String,
-        trim: true,
-        require: true
-    },
+    
     active: {
         type: Boolean,
         default: false
