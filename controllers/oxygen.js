@@ -29,11 +29,7 @@ exports.createOxygen = (req, res) => {
         } else {
 
             const { ngoname, location, pincode, quantityofCyclinder, contact_no } = req.body;
-            if (!req.file) {
-                return res.json({ error: "No images added" })
-            }
-            let id = req.params.userId;
-            let image = req.file.filename;
+           
 
             if (!ngoname || !location || !pincode || !quantityofCyclinder || !contact_no) {
                 return res.status(422).json({ error: "Please fill all the fields" });
@@ -46,7 +42,7 @@ exports.createOxygen = (req, res) => {
 
 
 
-                const oxygen = new Oxygen({ ngoname, location, pincode, quantityofCyclinder, contact_no, photo: image, user: id })
+                const oxygen = new Oxygen({ ngoname, location, pincode, quantityofCyclinder, contact_no, user: id })
 
 
                 oxygen.save().then(result => {
