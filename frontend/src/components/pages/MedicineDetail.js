@@ -63,7 +63,7 @@ function MedicineDetail() {
 ):
 <div class="container text-warning  d-flex justify-content-center shadow-lg text-center mb-2  border border-secondary  background" style={{height:"auto"}}>
   <div class="row">
-   //update
+ 
     
 
      
