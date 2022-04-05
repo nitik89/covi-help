@@ -34,7 +34,7 @@ exports.createFood = (req, res) => {
             const { ngoname, location, pincode, contact_no } = req.body;
 
 
-            let image = req.file.filename;
+          
 
             if (!ngoname || !location || !pincode || !contact_no) {
                 return res.status(422).json({ error: "Please fill all the fields" });
@@ -47,7 +47,7 @@ exports.createFood = (req, res) => {
 
 
 
-                const food = new Food({ ngoname, location, pincode, contact_no, photo: image })
+                const food = new Food({ ngoname, location, pincode, contact_no })
 
 
                 food.save().then(result => {
