@@ -87,7 +87,7 @@ useEffect(()=>{
              <div className="col-sm-12 col-md-6 col-xl-4 p-4">
              <div class="login-card-purple p-3 shadow-lg rounded border " >
 <div class="card-header" >
-<img src={`/${evnts?.photo}`} class="card-img-top" height="200rem" width="auto" alt={evnts.name}/>
+
 <h6 className=" font-weight-bold mt-4">
 
     <span clasName="subheading mr-2"style={{fontSize:"20px",color:"white"}}> NGO's Name: </span>
