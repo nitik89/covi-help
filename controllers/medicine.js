@@ -32,10 +32,7 @@ exports.createMedicine = (req, res) => {
 
 
             const { ngoname, medicinename, location, pincode, contact_no } = req.body;
-            if (!req.file) {
-                return res.status(422).json({ error: "No image is there" });
-            }
-            let image = req.file.filename;
+          
 
             if (!ngoname || !location || !pincode || !medicinename || !contact_no) {
                 return res.status(422).json({ error: "Please fill all the fields" });
