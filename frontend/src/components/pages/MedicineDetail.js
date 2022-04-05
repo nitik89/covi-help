@@ -65,8 +65,7 @@ function MedicineDetail() {
   <div class="row">
    
     
-  
-<img src={`/${details?.photo}`} class="img-fluid p-4 rounded " alt={details?.ngoname}/>
+
      
       
       
