@@ -24,11 +24,7 @@ var foodSchema = new mongoose.Schema({
     },
 
 
-    photo: {
-        type: String,
-        trim: true,
-        require: true
-    },
+  
 
     contact_no: {
         type: Number,
