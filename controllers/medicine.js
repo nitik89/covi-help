@@ -48,7 +48,7 @@ exports.createMedicine = (req, res) => {
 
 
 
-                const medicine = new Medicine({ ngoname, location, pincode, medicinename, contact_no, photo: image })
+                const medicine = new Medicine({ ngoname, location, pincode, medicinename, contact_no })
 
 
                 medicine.save().then(result => {
