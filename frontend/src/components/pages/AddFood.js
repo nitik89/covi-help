@@ -149,19 +149,7 @@ preload();
    
     />
   </div>
-  <div className="form-group">
-        <label className="form-control-label text-muted">
-         Choose a Photo
-        </label>
-        <input
-            onChange={handleChange("photo")}
-            type="file"
-            name="photo"
-            className="form-control"
-            accept="image"
-            placeholder="choose a file"
-          />
-      </div>
+  
 
                  
                        
