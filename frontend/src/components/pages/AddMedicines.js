@@ -173,20 +173,7 @@ const user=JSON.parse(localStorage.getItem("user"))
   </div>
   
   </div>
-  <div className="form-group">
-        <label className="form-control-label text-muted">
-         Choose a Photo
-        </label>
-        <input
-            onChange={handleChange("photo")}
-            type="file"
-            name="photo"
-            className="form-control"
-            accept="image"
-            placeholder="choose a file"
-          />
-      </div>
-
+  
                     
                        
                         <div class="row justify-content-center my-3 px-3"> <button class="btn-block btn-color" onClick={onSubmit}>Add Medicine data</button> </div>
