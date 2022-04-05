@@ -32,11 +32,7 @@ var medicinesSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    photo: {
-        type: String,
-        trim: true,
-        require: true
-    },
+ 
 
     contact_no: {
         type: Number,
